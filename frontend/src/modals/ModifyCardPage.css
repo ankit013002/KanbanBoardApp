@@ -92,3 +92,21 @@
     width: 20%;
 }
 
+.modal-container {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #444444;
+    padding: 1em;
+    border-radius: 1em;
+    min-width: 200px;
+}

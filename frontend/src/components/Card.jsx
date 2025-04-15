@@ -1,23 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Card.css";
 import { FaPencilAlt, FaRegTrashAlt } from "react-icons/fa";
-import AddCardPage from "../pages/ModifyCardPage";
+import ModifyCardPage from "../modals/ModifyCardPage";
 
-const Card = (props) => {
+const Card = ({ setCards, card, index }) => {
   const [cardPageOpen, setCardPageOpen] = useState(false);
 
   const deleteCard = () => {
-    props.setCards((prevCards) => {
+    setCards((prevCards) => {
       const updatedCards = [...prevCards];
-      updatedCards.splice(props.index, 1);
+      updatedCards.splice(index, 1);
       return updatedCards;
     });
+  };
+
+  const editCard = (card) => {
+    setCards((prevCards) => {
+      const updatedCards = [...prevCards];
+      updatedCards[index] = card;
+      return updatedCards;
+    });
+    setCardPageOpen(false);
   };
 
   return (
     <div className="card-container">
       <div className="card-title-container">
-        <div className="card-title">{props.card.title}</div>
+        <div className="card-title">{card.title}</div>
         <div className="card-buttons-container">
           <button onClick={() => setCardPageOpen(true)} className="card-button">
             <FaPencilAlt />
@@ -27,20 +36,14 @@ const Card = (props) => {
           </button>
         </div>
       </div>
-      <div className="card-body">{props.card.body}</div>
+      <div className="card-body">{card.body}</div>
       {cardPageOpen && (
-        <div className="modal-container">
-          <div className="modal-content">
-            <AddCardPage
-              index={props.index}
-              editMode={true}
-              setCards={props.setCards}
-              setCardPageOpen={setCardPageOpen}
-              title={props.card.title}
-              body={props.card.body}
-            />
-          </div>
-        </div>
+        <ModifyCardPage
+          title={card.title}
+          body={card.body}
+          onExit={() => setCardPageOpen(false)}
+          onSave={editCard}
+        />
       )}
     </div>
   );

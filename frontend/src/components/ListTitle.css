@@ -1,0 +1,35 @@
+.list-title-container {
+    display: flex;
+    height: 5em;
+}
+
+.list-title-box {
+    width: 90%;
+    padding-bottom: 1em;
+    background-color: transparent;
+}
+
+.list-input-box {
+    max-width: 15em;
+    text-align: center;
+    font-size: large;
+}
+
+.list-title-text {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.edit-list-button-container {
+    background-color: transparent;
+    width: 10%;
+    height: 100%;
+    min-width: 1em;
+    min-height: 4em;
+    max-height: 4em;
+}
+
+.edit-list-button {
+    height: 50%;
+}

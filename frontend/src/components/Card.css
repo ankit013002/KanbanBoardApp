@@ -11,12 +11,10 @@
     margin: 1em 0;
 }
 
-
 .card-title-container{
     display: flex;
     background-color: transparent;
 }
-
 
 .card-buttons-container {
     background-color: transparent;

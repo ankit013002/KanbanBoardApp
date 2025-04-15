@@ -1,0 +1,13 @@
+.add-card-button {
+    height: 2em;
+    border-radius: 1em;
+    background-color: #333333;
+    border: none
+}
+
+.add-card-button:hover {
+    border-radius: 1em;
+    background-color: #555555;
+    border: none
+}
+
