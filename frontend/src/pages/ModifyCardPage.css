@@ -1,0 +1,94 @@
+.add-card-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+}
+
+
+.add-card-header{
+    display: flex;
+    align-items: center;
+    height: 10%;
+    background: transparent;
+}
+
+.add-card-title-container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.add-card-exit-button-container{
+    width: 10%;
+    padding: 1%;
+}
+
+.add-card-exit-button {
+    border-radius: 1em;
+}
+
+.add-card-content{
+    height: 80%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-title-section{
+    height: 30%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title-input {
+    width: 50%;
+    height: 3em;
+    padding: 0 1em;
+    background-color: #aaaaaa;
+    border: none;
+    border-radius: 2em;
+}
+
+.content-body-section {
+    height: 70%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body-input {
+    width: 80%;
+    height: 80%;
+    padding: 2em;
+    background-color: #aaaaaa;
+    border: none;
+    border-radius: 2em;
+    overflow-y: auto;
+    text-align: left;
+    vertical-align: top;
+    resize: none;
+    font-family: inherit;
+}
+
+
+.add-card-footer{
+    height: 10%;
+    width: 100%;
+    padding: 1%;
+    background: transparent;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+.add-card-save-button{
+    width: 20%;
+}
+

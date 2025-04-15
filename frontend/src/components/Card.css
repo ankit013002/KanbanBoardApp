@@ -1,0 +1,46 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+
+.card-title-container{
+    display: flex;
+    background-color: transparent;
+}
+
+
+.card-buttons-container {
+    background-color: transparent;
+    display: flex;
+    width: 25%;
+    height: 100%;
+    min-width: 1em;
+    min-height: 4em;
+    max-height: 4em;
+}
+
+.card-button {
+    height: 50%;
+}
+
+
+.card-title{
+    width: 75%;
+    margin-bottom: 1em;
+    font-size: large;
+    font-weight: bold;
+}
+
+.card-body {
+    font-size: small;
+    background-color: transparent;
+}
