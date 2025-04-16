@@ -3,6 +3,7 @@ import "./CardModal.css";
 
 const ModifyCardPage = (props) => {
   const [card, setCard] = useState({
+    index: props.index,
     title: props.title,
     body: props.body,
   });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ListBody.css";
 import Card from "./Card";
-import ModifyCardPage from "../modals/CardModel";
+import CardModal from "../modals/CardModal";
 
 const ListBody = ({ listIndex, setLists, cards }) => {
   const [cardPageOpen, setCardPageOpen] = useState(false);
@@ -68,6 +68,32 @@ const ListBody = ({ listIndex, setLists, cards }) => {
     });
   };
 
+  const handleCardIndexChange = (oldIndex, newIndex) => {
+    setLists((prevLists) => {
+      const updateLists = [...prevLists];
+      const cards = [...updateLists[listIndex].cards];
+
+      const cardOne = {
+        ...cards[oldIndex],
+        index: newIndex,
+      };
+
+      const cardTwo = {
+        ...cards[newIndex],
+        index: oldIndex,
+      };
+
+      cards[oldIndex] = cardTwo;
+      cards[newIndex] = cardOne;
+
+      updateLists[listIndex] = {
+        ...updateLists[listIndex],
+        cards,
+      };
+      return updateLists;
+    });
+  };
+
   return (
     <div>
       {Array.isArray(cards) &&
@@ -76,6 +102,9 @@ const ListBody = ({ listIndex, setLists, cards }) => {
             <Card
               onDelete={() => handleDelete(index)}
               onEdit={(updatedCard) => handleEdit(index, updatedCard)}
+              onCardIndexChange={(newIndex) =>
+                handleCardIndexChange(index, newIndex)
+              }
               onListChange={(newListIndex) =>
                 handleListChange(index, newListIndex)
               }
@@ -88,7 +117,8 @@ const ListBody = ({ listIndex, setLists, cards }) => {
         Add Card
       </button>
       {cardPageOpen && (
-        <ModifyCardPage
+        <CardModal
+          index={cards.length}
           title=""
           body=""
           onExit={() => setCardPageOpen(false)}

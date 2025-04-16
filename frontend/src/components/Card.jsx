@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Card.css";
 import { FaPencilAlt, FaRegTrashAlt } from "react-icons/fa";
-import ModifyCardPage from "../modals/CardModel";
+import CardModal from "../modals/CardModal";
 import ComboBox from "./ComboBox";
 
-const Card = ({ onDelete, onEdit, onListChange, card }) => {
+const Card = ({ onDelete, onEdit, onCardIndexChange, onListChange, card }) => {
   const [cardPageOpen, setCardPageOpen] = useState(false);
   const [listIndex, setListIndex] = useState(0);
+  const [cardIndex, setCardIndex] = useState(0);
+
+  useEffect(() => {
+    setCardIndex(card.index);
+  }, [card]);
 
   return (
     <div className="card-container">
@@ -37,11 +42,25 @@ const Card = ({ onDelete, onEdit, onListChange, card }) => {
               Submit
             </button>
           </div>
+          <div className="edit-list-index-button-container">
+            <input
+              value={cardIndex}
+              type="text"
+              className="edit-list-index-input"
+              onChange={(e) => setCardIndex(e.target.value)}
+            />
+            <button
+              className="edit-list-submit-button"
+              onClick={() => onCardIndexChange(cardIndex)}
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
       <div className="card-body">{card.body}</div>
       {cardPageOpen && (
-        <ModifyCardPage
+        <CardModal
           title={card.title}
           body={card.body}
           onSave={(updatedCard) => {
