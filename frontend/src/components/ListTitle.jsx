@@ -11,7 +11,7 @@ const ListTitle = ({ listIndex, setLists }) => {
       setTitleEditable(false);
       setLists((prevLists) => {
         const updatedLists = [...prevLists];
-        updatedLists[listIndex] = { title: title };
+        updatedLists[listIndex] = { ...updatedLists[listIndex], title: title };
         return updatedLists;
       });
     }

@@ -3,11 +3,11 @@ import "./List.css";
 import ListTitle from "./ListTitle";
 import ListBody from "./ListBody";
 
-const List = ({ index, setLists }) => {
+const List = ({ cards, index, setLists }) => {
   return (
     <div className="list-container">
       <ListTitle listIndex={index} setLists={setLists} />
-      <ListBody />
+      <ListBody listIndex={index} setLists={setLists} cards={cards} />
     </div>
   );
 };

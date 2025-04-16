@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ModifyCardPage.css";
+import "./CardModal.css";
 
 const ModifyCardPage = (props) => {
   const [card, setCard] = useState({
@@ -29,7 +29,7 @@ const ModifyCardPage = (props) => {
                 className="add-card-exit-button"
                 onClick={() => props.onExit()}
               >
-                EXIT
+                Exit
               </button>
             </div>
           </div>

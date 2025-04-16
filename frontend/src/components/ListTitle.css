@@ -13,6 +13,9 @@
     max-width: 15em;
     text-align: center;
     font-size: large;
+    border-radius: 2em;
+    background-color: transparent;
+    border: none;
 }
 
 .list-title-text {
@@ -31,5 +34,12 @@
 }
 
 .edit-list-button {
+    width: 80%;
+    background-color: transparent;
+    border: none;
     height: 50%;
+}
+
+.edit-list-button:hover {
+    color: #ccc;
 }

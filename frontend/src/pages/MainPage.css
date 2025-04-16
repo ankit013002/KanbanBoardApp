@@ -1,19 +1,44 @@
 .mainpage-container {
-    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.mainpage-kanban-header-container {
+    height: 5%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: bold;
+}
+
+.mainpage-kanban-body-container{
     padding: 2em;
+}
+
+.mainpage-kanban-scroll-area{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     display: flex;
     justify-content: start;
     align-items: start;
-    background-color: #333333;
-    overflow-x: scroll;
 }
 
-.mainpage-list-container {
+.mainpage-kanban-container{
+    border-radius: 2em;
+    padding: 2em;
+    background-color: #333333;
+    overflow: hidden;/* hide scroll bar overflow */
+}
+
+.kanban-container{
     display: flex;
     background-color: transparent;
     width: auto;
     height: auto;
 }
+
 
 .create-button {
     border: 1px solid black;
