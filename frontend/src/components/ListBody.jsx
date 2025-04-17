@@ -32,13 +32,15 @@ const ListBody = ({ listIndex, setLists, cards }) => {
 
   const handleListChange = (index, newListIndex) => {
     setLists((prevLists) => {
+      if (newListIndex >= prevLists.length)
+        return prevLists;
+      
       const updatedLists = [...prevLists];
       console.log("length: " + updatedLists.length);
       console.log("Index: " + newListIndex);
       if (newListIndex >= updatedLists.length) {
         return prevLists;
       }
-
       const cardToMove = updatedLists[listIndex].cards[index]; // make a copy BEFORE modifying anything
 
       updatedLists[listIndex] = {
@@ -70,6 +72,8 @@ const ListBody = ({ listIndex, setLists, cards }) => {
 
   const handleCardIndexChange = (oldIndex, newIndex) => {
     setLists((prevLists) => {
+      if(newIndex > prevLists.length)
+        return prevLists
       const updateLists = [...prevLists];
       const cards = [...updateLists[listIndex].cards];
       const cardToMove = { ...cards[oldIndex]};
