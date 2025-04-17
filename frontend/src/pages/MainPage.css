@@ -1,6 +1,8 @@
 .mainpage-container {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+
     background-color: transparent;
 }
 
@@ -14,6 +16,7 @@
 }
 
 .mainpage-kanban-body-container{
+    height: 95%;
     padding: 2em;
 }
 

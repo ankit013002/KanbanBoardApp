@@ -72,23 +72,12 @@ const ListBody = ({ listIndex, setLists, cards }) => {
     setLists((prevLists) => {
       const updateLists = [...prevLists];
       const cards = [...updateLists[listIndex].cards];
-
-      const cardOne = {
-        ...cards[oldIndex],
-        index: newIndex,
-      };
-
-      const cardTwo = {
-        ...cards[newIndex],
-        index: oldIndex,
-      };
-
-      cards[oldIndex] = cardTwo;
-      cards[newIndex] = cardOne;
-
+      const cardToMove = { ...cards[oldIndex]};
+      const newCards = cards.filter((_, i) => i !== oldIndex)
+      newCards.splice(newIndex, 0, cardToMove);
       updateLists[listIndex] = {
         ...updateLists[listIndex],
-        cards,
+        cards: newCards,
       };
       return updateLists;
     });
@@ -100,6 +89,7 @@ const ListBody = ({ listIndex, setLists, cards }) => {
         cards.map((item, index) => {
           return (
             <Card
+              index={index}
               onDelete={() => handleDelete(index)}
               onEdit={(updatedCard) => handleEdit(index, updatedCard)}
               onCardIndexChange={(newIndex) =>
@@ -118,7 +108,6 @@ const ListBody = ({ listIndex, setLists, cards }) => {
       </button>
       {cardPageOpen && (
         <CardModal
-          index={cards.length}
           title=""
           body=""
           onExit={() => setCardPageOpen(false)}

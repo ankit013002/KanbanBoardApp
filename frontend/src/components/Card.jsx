@@ -4,14 +4,14 @@ import { FaPencilAlt, FaRegTrashAlt } from "react-icons/fa";
 import CardModal from "../modals/CardModal";
 import ComboBox from "./ComboBox";
 
-const Card = ({ onDelete, onEdit, onCardIndexChange, onListChange, card }) => {
+const Card = ({ index, onDelete, onEdit, onCardIndexChange, onListChange, card  }) => {
   const [cardPageOpen, setCardPageOpen] = useState(false);
   const [listIndex, setListIndex] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
 
   useEffect(() => {
-    setCardIndex(card.index);
-  }, [card]);
+    setCardIndex(index);
+  }, [card, index]);
 
   return (
     <div className="card-container">
