@@ -3,8 +3,9 @@ import "./Card.css";
 import { FaPencilAlt, FaRegTrashAlt } from "react-icons/fa";
 import CardModal from "../modals/CardModal";
 import ComboBox from "./ComboBox";
+import MenuSelection from "./MenuSelection";
 
-const Card = ({ index, onDelete, onEdit, onCardIndexChange, onListChange, card  }) => {
+const Card = ({ index, onDelete, onEdit, onCardIndexChange, onListChange, card, numberOfCards  }) => {
   const [cardPageOpen, setCardPageOpen] = useState(false);
   const [listIndex, setListIndex] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
@@ -12,6 +13,14 @@ const Card = ({ index, onDelete, onEdit, onCardIndexChange, onListChange, card  
   useEffect(() => {
     setCardIndex(index);
   }, [card, index]);
+
+  const intToArray = (integer) => {
+    let array = []
+    for(let i = 0; i < integer; i++){
+      array.push(i);
+    }
+    return array;
+  }
 
   return (
     <div className="card-container">
@@ -43,18 +52,7 @@ const Card = ({ index, onDelete, onEdit, onCardIndexChange, onListChange, card  
             </button>
           </div>
           <div className="edit-list-index-button-container">
-            <input
-              value={cardIndex}
-              type="text"
-              className="edit-list-index-input"
-              onChange={(e) => setCardIndex(e.target.value)}
-            />
-            <button
-              className="edit-list-submit-button"
-              onClick={() => onCardIndexChange(cardIndex)}
-            >
-              Submit
-            </button>
+            <MenuSelection selectedItem={cardIndex} setSelectedItem={(newCardIndex) => onCardIndexChange(newCardIndex)} options={intToArray(numberOfCards)} />
           </div>
         </div>
       </div>

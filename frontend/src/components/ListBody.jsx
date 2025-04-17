@@ -103,6 +103,7 @@ const ListBody = ({ listIndex, setLists, cards }) => {
                 handleListChange(index, newListIndex)
               }
               card={item}
+              numberOfCards={cards.length}
               key={index}
             />
           );
